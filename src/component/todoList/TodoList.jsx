@@ -90,7 +90,7 @@ function TodoList() {
     setEdit(false);
   };
   return (
-    <section className=" w-full h-full p-2 ">
+    <section className=" w-full h-full p-2 mt-10 ">
       <div className="p-4 relative max-w-180  mx-auto bg-white rounded-xl">
         <h2 className="text-center font-bold font-serif mb-5 text-2xl">
           My ToDo-List

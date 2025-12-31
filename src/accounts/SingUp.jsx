@@ -1,7 +1,9 @@
-import React from "react";
+import React from 'react'
 
 function SingUp() {
-  return <div>SingUp</div>;
+  return (
+    <div>SingUp</div>
+  )
 }
 
-export default SingUp;
+export default SingUp
