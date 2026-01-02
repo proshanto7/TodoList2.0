@@ -1,6 +1,23 @@
+import { useState } from "react";
 import Header from "../component/header/Header";
 
 function SingUp() {
+  const [useDetails, setUserDetails] = useState({
+    name: "",
+    email: "",
+    password: "",
+  });
+
+  const HandleSubmit = (e) => {
+    e.preventDefault();
+
+    console.log("data done");
+  };
+
+  const HandleSubmiitBtn = () => {
+    alert("on click");
+  };
+
   return (
     <>
       <Header />
@@ -14,7 +31,7 @@ function SingUp() {
               alt="login-image"
             />
           </div>
-          <form className="max-w-xl w-full p-6 mx-auto">
+          <form onSubmit={HandleSubmit} className="max-w-xl w-full p-6 mx-auto">
             <div className="mb-12">
               <h1 className="text-slate-900 text-4xl font-bold">Sign up</h1>
               <p className="text-slate-600 text-sm mt-6">
@@ -28,6 +45,33 @@ function SingUp() {
               </p>
             </div>
             <div className="space-y-6">
+              <div>
+                <label className="text-slate-900 text-sm font-medium block mb-2">
+                  User Name
+                </label>
+                <div className="relative flex items-center">
+                  <input
+                    name="name"
+                    type="text"
+                    required=""
+                    className="w-full text-sm text-slate-900 border-b border-slate-300 focus:border-blue-600 pr-8 px-2 py-3 outline-none"
+                    placeholder="User Name"
+                  />
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="#bbb"
+                    stroke="#bbb"
+                    className="w-4 h-4 absolute right-4"
+                    viewBox="0 0 24 24"
+                  >
+                    <circle cx={10} cy={7} r={6} data-original="#000000" />
+                    <path
+                      d="M14 15H6a5 5 0 0 0-5 5 3 3 0 0 0 3 3h12a3 3 0 0 0 3-3 5 5 0 0 0-5-5zm8-4h-2.59l.3-.29a1 1 0 0 0-1.42-1.42l-2 2a1 1 0 0 0 0 1.42l2 2a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42l-.3-.29H22a1 1 0 0 0 0-2z"
+                      data-original="#000000"
+                    />
+                  </svg>
+                </div>
+              </div>
               <div>
                 <label className="text-slate-900 text-sm font-medium block mb-2">
                   Email
@@ -102,6 +146,7 @@ function SingUp() {
               <button
                 type="button"
                 className="w-full py-2 px-4 text-[15px] font-medium tracking-wide rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none cursor-pointer"
+                onClick={HandleSubmiitBtn}
               >
                 Sign in
               </button>
