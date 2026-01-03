@@ -2,20 +2,26 @@ import { useState } from "react";
 import Header from "../component/header/Header";
 
 function SingUp() {
-  const [useDetails, setUserDetails] = useState({
-    name: "",
+  const [userDetails, setUserDetails] = useState({
+    userName: "",
     email: "",
     password: "",
   });
 
+  // onChange function
+  const handleChange = (e) => {
+    setUserDetails({
+      ...userDetails,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  // submit function
+
   const HandleSubmit = (e) => {
     e.preventDefault();
 
-    console.log("data done");
-  };
-
-  const HandleSubmiitBtn = () => {
-    alert("on click");
+    console.log(userDetails);
   };
 
   return (
@@ -51,7 +57,8 @@ function SingUp() {
                 </label>
                 <div className="relative flex items-center">
                   <input
-                    name="name"
+                    name="userName"
+                    onChange={handleChange}
                     type="text"
                     required=""
                     className="w-full text-sm text-slate-900 border-b border-slate-300 focus:border-blue-600 pr-8 px-2 py-3 outline-none"
@@ -79,6 +86,7 @@ function SingUp() {
                 <div className="relative flex items-center">
                   <input
                     name="email"
+                    onChange={handleChange}
                     type="text"
                     required=""
                     className="w-full text-sm text-slate-900 border-b border-slate-300 focus:border-blue-600 pr-8 px-2 py-3 outline-none"
@@ -122,6 +130,7 @@ function SingUp() {
                 <div className="relative flex items-center">
                   <input
                     name="password"
+                    onChange={handleChange}
                     type="password"
                     required=""
                     className="w-full text-sm text-slate-900 border-b border-slate-300 focus:border-blue-600 pr-8 px-2 py-3 outline-none"
@@ -143,13 +152,11 @@ function SingUp() {
               </div>
             </div>
             <div className="mt-12">
-              <button
-                type="button"
+              <input
+                type="submit"
+                value="Sing in"
                 className="w-full py-2 px-4 text-[15px] font-medium tracking-wide rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none cursor-pointer"
-                onClick={HandleSubmiitBtn}
-              >
-                Sign in
-              </button>
+              />
             </div>
             <div className="my-4 flex items-center gap-4">
               <hr className="w-full border-slate-300" />
